@@ -1,0 +1,24 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "sample node Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitomlpereira/productsNodeAPI.git"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "express"
+  ],
+  "author": "Vito M L Pereira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitomlpereira/productsNodeAPI/issues"
+  },
+  "homepage": "https://github.com/vitomlpereira/productsNodeAPI#readme"
+}
