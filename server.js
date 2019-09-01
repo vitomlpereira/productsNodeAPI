@@ -3,6 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const server = express();
 
+//Configure Atlas mongo datatabse connection
+const dataSource = require('./databaseConfig');
+dataSource.configureDataSource();
+
 const productsRoute = require('./routes/productsRoute');
 
 server.use(bodyParser.json());

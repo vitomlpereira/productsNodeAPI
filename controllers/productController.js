@@ -1,21 +1,43 @@
+const Product = require('./../models/product');
 
 
+ exports.get = ( req , res ) => {
+    
+    Product.find({}, function(err, prod) {
+    
+        var productsCollection = [];
 
-exports.get = ( req , res ) => {
-    return res.json({message:'return all products'});
+        prod.forEach(function(p) {
+            productsCollection.push(p);  
+        });
+       
+        return res.json(productsCollection);
+    });
+
 } 
 
 exports.getByID = ( req , res ) => {
-    var username = req.params.productID;
-    return res.json({message:`product ${username}`});
-} 
+    
+    const productID = req.params.productID;
+
+    Product.findById(productID, function(err, prod) {
+        return res.json(prod);
+    });
+}
 
 exports.put = ( req , res ) => {
     res.send('Updating product');
 } 
 
 exports.post = ( req , res ) => {
-    res.send('Adding product');
+    
+    const productName = req.body.productName;
+    const product = new Product({ name: productName });
+    
+    product.save().
+        then(( ) => res.status(200).json({success:true}))
+        .catch((error) => res.status(500).json({success:false}));
+
 } 
 
 exports.delete = ( req , res ) => {
